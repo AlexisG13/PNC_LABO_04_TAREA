@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Seguridad</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div>
+		<h1 class="text-center">Ingresar producto</h1>
+	</div>
+	<form th:action="@{/seguridad}" th:object="${robot}" method="post"
+		class="main-form" novalidate>
+		<div class="col">
+			<div class="row">
+				<label class="label-robot"> Marcar solo si usted es un robot</label> <input type="radio"
+					th:field="*{soyRobot}" th:value="${false}"> <span
+					th:errors="*{soyRobot}" style="color: #E81505"></span>
+			</div>
+			<div class="row">
+				<input type="submit" class="btn btn-primary" value="Aceptar">
+			</div>
+		</div>
+	</form>
+	<br>
+	<a href="producto">Regresar</a>
+</body>
+</html>

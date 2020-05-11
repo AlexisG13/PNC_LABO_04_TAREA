@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<title>Product Index</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div>
+	<h1 class="text-center">Ingresar producto</h1>
+	</div>
+
+	<form th:action="@{/formProducto}" th:object="${producto}"
+		method="post" class="main-form" novalidate>
+		<div class="col">
+			<div class="row">
+				<div class="form-group">
+					<label for="nombre">Nombre del producto </label> <input
+						th:field="*{nombre}" id="nombre" type="text" placeholder="Nombre"
+						name="nombre" class="form-control" /> <span th:errors="*{nombre}"
+						style="color: #E81505"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="descripcion">Descripcion </label> <input
+						th:field="*{descripcion}" id="descripcion" type="text"
+						placeholder="Descripcion" name="descripcion" class="form-control" />
+					<span th:errors="*{descripcion}" style="color: #E81505"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="precio">Precio </label> <input th:field="*{precio}"
+						id="precio" type="number" placeholder="Precio" name="precio"
+						class="form-control" /> <span th:errors="*{precio}"
+						style="color: #E81505"></span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<label for="vencimiento">Fecha de vencimiento </label> <input
+						th:field="*{fechaVencimiento}" id="fechaVencimiento" type="text"
+						placeholder="dd/mm/yyyy" name="fechaVencimiento"
+						class="form-control" /> <span th:errors="*{fechaVencimiento}"
+						style="color: #E81505"></span>
+				</div>
+			</div>
+			<input type="submit" class="btn btn-primary" value="Guardar producto">
+		</div>
+	</form>
+</body>
+</html>
